@@ -1,21 +1,33 @@
 import { useNavigation } from '@react-navigation/native';
+import { StatusBar } from 'expo-status-bar';
 import React, { useLayoutEffect } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, SafeAreaView, Image} from 'react-native';
+import GlobalStyles from '../components/GlobalStyles';
+
+
 
 
 const HomeScreen = () => {
     const navigation = useNavigation()
 
-    useLayoutEffect(()=>{
-            navigation.setOptions({
-                headerShown: false,
-            })
+    useLayoutEffect(() => {
+        navigation.setOptions({
+            headerShown: false,
+        })
     }, [])
 
     return (
-        <View className=" flex items-center justify-center flex-1">
-            <Text className=" text-red-500 text-3xl">Home Screen</Text>
-        </View>
+        <SafeAreaView style={GlobalStyles.androidSafeArea}>
+            <View>
+                <Image
+                    source={{
+                        uri: 'https://links.papareact.com/wru'
+                    }}
+                    className=" h-7 w-7 bg-gray-300"
+                >
+                </Image>
+            </View>
+        </SafeAreaView>
     );
 }
 
